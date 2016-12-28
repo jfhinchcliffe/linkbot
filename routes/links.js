@@ -49,4 +49,12 @@ router.put('/:id', (req, res, next) => {
     }); 
 });
 
+// Delete a link 
+router.delete('/:id', (req, res, next) => {
+  Link.findByIdAndRemove(req.params.id)
+    .then( ()=> {
+      res.json('Link Deleted');
+    }); 
+});
+
 module.exports = router;
