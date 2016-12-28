@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 // Show 1 link based on URL
 router.get('/:id', function(req, res, next) {
 
-    Link.find(req.params.id)
+    Link.findById(req.params.id)
     .then(link => {
         res.json(link)
     })
