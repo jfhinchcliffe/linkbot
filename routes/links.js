@@ -33,4 +33,20 @@ router.post('/', function(req, res, next) {
     });
 });
 
+// Update one link
+router.put('/:id', (req, res, next) => {
+  Link.findById(req.params.id)
+    .then( link => {
+        // set that link will only update if params are provided (won't set to nil)
+        if (req.body.url) link.url = req.body.url;
+        if (req.body.title) link.title = req.body.title;
+      link.save((err) => {
+        if (err)
+          res.send(err);
+        console.log('Link updated');  
+        res.json({link});  
+      });
+    }); 
+});
+
 module.exports = router;
