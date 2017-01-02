@@ -29,7 +29,7 @@ router.post('/', function(req, res, next) {
     link.save((err) => {
     if (err) 
       res.send(err);
-      res.json({status: "Link Added"});  
+      res.json({link});  
     });
 });
 
